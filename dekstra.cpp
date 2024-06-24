@@ -34,13 +34,17 @@ void decstra(){
     }
 }
 int main(){
-    cin >> n >> m;
+
+     std::string line;
+ 
+    std::ifstream in("hello.txt"); // окрываем файл для чтения
+    in >> n >> m;
     a.resize(n*m, yu);
     p.resize(n*m, -1);
     g.resize(n, vector <int> (m));
     for (int i = 0; i < n; i ++) {
         string s;
-        cin >> s;
+        in >> s;
         for (int j = 0; j < m ; j ++) {
             if (s[j] == '#') {
                 g[i][j] = 0;
@@ -49,7 +53,8 @@ int main(){
             }
         }
     }
-    cin >> nx >> ny >> kx >> ky;
+    in >> nx >> ny >> kx >> ky;
+    in.close();     // закрываем файл
     decstra();
     int tt = kx*m + ky;
     vector <int> ans;
