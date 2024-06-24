@@ -33,11 +33,9 @@ void decstra(){
         }
     }
 }
-int main(){
-
-     std::string line;
- 
-    std::ifstream in("hello.txt"); // окрываем файл для чтения
+int main(int argc, char* argv[]) {
+    std::ifstream in; // окрываем файл для чтения
+    in.open(argv[1]);
     in >> n >> m;
     a.resize(n*m, yu);
     p.resize(n*m, -1);
